@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <title>Portfolio</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+      body {
+        background-color: black;
+        color: white;
+      }
+      nav {
+        font-family: "Quicksand";
+        background-color: rgb(21, 21, 21);
+        height: 60px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+      .locator {
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .locator a {
+        color: white;
+        text-decoration: none;
+        font-size: large;
+        position: relative;
+        display: inline-block;
+      }
+      .locator a::after {
+        content: "";
+        background-color: rgb(28, 222, 175);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        width: 100%;
+        height: 2px;
+        border-radius: 1px;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+      .locator a:hover {
+        color: rgb(28, 222, 175);
+      }
+      .locator a:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      #home {
+        height: 100vh;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .txt {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+        padding-left: 20%;
+        flex-direction: column;
+        font-family: "Roboto Slab", serif;
+      }
+      .img {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .name {
+        color: rgb(28, 222, 175);
+      }
+      .aboutme {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      h1 {
+        padding: 3%;
+        color: rgb(28, 222, 175);
+        font-family: "Roboto Slab";
+      }
+      .aboutme p {
+        width: 80%;
+        font-family: "Quicksand";
+      }
+      .skills {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+      }
+      td {
+        text-align: center;
+        padding: 10px;
+        font-family: "Quicksand";
+      }
+      th {
+        padding-left: 15px;
+        padding-right: 15px;
+        color: rgb(28, 222, 175);
+        font-family: "Roboto Slab";
+        border-bottom: 2px solid rgba(255, 255, 255, 0.503);
+      }
+      table {
+        border-collapse: collapse;
+      }
+      td:first-child,
+      th:first-child {
+        border-right: 2px rgba(255, 255, 255, 0.503) solid;
+      }
+      .project {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      .grid {
+        max-width: 1200px;
+        margin: 20px auto;
+        /* padding: 20px; */
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        padding: 3px 0px 15px 15px;
+        border-radius: 10px;
+        width: 300px;
+        background-color: rgba(255, 255, 255, 0.644);
+        display: flex;
+        /* align-items: center; */
+        flex-direction: column;
+      }
+      .card h3 {
+        color: rgb(0, 255, 191);
+        font-family: "Roboto Slab";
+      }
+      .card span {
+        font-family: sans-serif;
+        font-size: medium;
+      }
+      .contact-me {
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .contact {
+        width: 80%;
+        text-align: center;
+      }
+      p {
+        font-family: "Quicksand";
+      }
+      .contactlist {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .contact-card {
+        background-color: transparent;
+        width: 200px;
+      }
+      .contact-card h3 {
+        color: rgb(0, 255, 191);
+        font-family: sans-serif;
+      }
+      .contact-card a {
+        text-decoration: none;
+        color: white;
+      }
+      @media (min-width: 768px) and (max-width: 950px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .hr {
+          margin-top: 35%;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .txt {
+          padding-left: 0;
+          padding-top: 7%;
+          width: 100%;
+          text-align: center;
+        }
+        .aboutme p {
+          width: 95%;
+        }
+        #home {
+          grid-template-columns: 1fr;
+        }
+        .ps {
+          margin-top: 80px;
+        }
+        .grid {
+          padding-left: 5%;
+          padding-right: 5%;
+          grid-template-columns: 1fr; /* Switch to a single column layout */
+          gap: 10px; /* Reduce the gap between items */
+        }
+        .card {
+          width: 100%; /* Expand cards to full width */
+        }
+        .hr {
+          margin-top: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="locator">
+        <a href="#home">Home</a>
+        <a href="#aboutme">About me</a>
+        <a href="#project">My Projects</a>
+        <a href="#contact-me">Contect Me</a>
+      </div>
+    </nav>
+    <div id="home">
+      <div class="txt">
+        <span>I am <span class="name">VIVEK</span></span>
+        <span>I am a Web Developer</span>
+      </div>
+      <div class="img">
+        <img src="designer-a.svg" alt="" style="width: 600px" />
+      </div>
+    </div>
+    <hr />
+    <div class="aboutme" id="aboutme">
+      <h1>About me</h1>
+      <p>
+        I am a critical thinker with a strong passion for programming and
+        software development. I have invested my time and efforts to become
+        proficient in languages such as C, Python, Java, HTML, CSS, and
+        JavaScript. These languages empower me to create innovative applications
+        and design visually appealing websites. I am constantly seeking
+        opportunities to learn and grow in the field of technology, which is why
+        I am currently looking for an internship. This internship will allow me
+        to apply my programming skills, gain real-world experience, and
+        contribute to meaningful projects. I believe that my analytical mindset
+        and proficiency in multiple languages make me a valuable asset in the
+        software development industry. I am eager to make a positive impact and
+        thrive in a professional setting.
+      </p>
+      <div class="skills">
+        <table>
+          <thead border="1" frame="void" rules="rows">
+            <tr>
+              <th>Personal Skills</th>
+              <th>Technical Skills</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>Problem Resolution</td>
+            <td>C</td>
+          </tr>
+          <tr>
+            <td>Analytical Skills</td>
+            <td>Python</td>
+          </tr>
+          <tr>
+            <td>Critical Thinking</td>
+            <td>Java</td>
+          </tr>
+          <tr>
+            <td>Multi-Tasking Abilities</td>
+            <td>HTML</td>
+          </tr>
+          <tr>
+            <td>Code Development</td>
+            <td>CSS</td>
+          </tr>
+          <tr>
+            <td>Creative Thinking</td>
+            <td>JavaScript</td>
+          </tr>
+          <tr>
+            <td>Collaboration Skills</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Technical Skills</td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <hr class="ps" />
+    <div class="project" id="project">
+      <h1>My Projects</h1>
+      <div class="grid">
+        <div class="card">
+          <h3>Weather Notifier</h3>
+          <span>Using Python</span>
+          <p>
+            This program fetches the live weather informationfrom a specific URL
+            using web scraping, displays thecurrent temperature and weather
+            condition for agiven location using Windows 10 notifications.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Rock-Paper-Scissors</h3>
+          <span>Using Python</span>
+          <p>
+            This program is a graphical user interface (GUI)application
+            implemented using the Tkinter library inPython. It allows the user
+            to play the game "RockPaper Scissors" against the computer.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Note Taker</h3>
+          <span>Using Python</span>
+          <p>
+            This Python program uses Tkinter for the userinterface and MySQL for
+            data storage to create abasic note-taking application with features
+            likeadding, editing, searching, deleting, and sortingnotes.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Portfolio</h3>
+          <span>Using HTML,CSS</span>
+          <p>
+            This code is an HTML document created toexpress information about
+            me. It contains aabout section, a projects section and a contactme
+            section.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Search Engine</h3>
+          <span>Using HTML,CSS,JavaScript</span>
+          <p>
+            This code is an HTML document that creates a searchengine interface.
+            It includes a navigation bar, searchforms for different search
+            engines (Google, YouTube,Amazon, Reddit, Wikipedia, and Spotify),
+            and stylingusing Bootstrap CSS.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Quiz Application</h3>
+          <span>Using HTML,CSS,JavaScript</span>
+          <p>
+            This website allows users to input a categoryand question number,
+            leveraging APIs todynamically generate a customized webpagewith
+            relevant content, such as questions,answers, with timer and a pie
+            chartrepresentation of your results.
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr class="hr" />
+    <div class="contact-me" id="contact-me">
+      <div class="contact">
+        <h1>Contact Me</h1>
+        <p>
+          If you'd like to connect or have any questions, please feel free to
+          reach out to me at your convenience.I'm open to discussions and
+          collaborations. Don't hesitate to contact me if you're interested or
+          need further information.
+        </p>
+      </div>
+      <div class="contactlist">
+        <div class="contact-card">
+          <h3 class="card-title">Email</h3>
+          <a href="#">vivekarcot17@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <h3 class="card-title">Contact</h3>
+          <a href="tel:+919502852480" type="tel">+91 9502852480</a>
+        </div>
+        <div class="contact-card">
+          <h3 class="card-title">Instagram</h3>
+          <a href="https://www.instagram.com/vivekrockz_1703/#"
+            >@vivekrockz_1703</a
+          >
+        </div>
+        <div class="contact-card">
+          <h3 class="card-title">Address</h3>
+          <a
+            href="https://www.google.com/maps/place/Hyderabad,+Telangana/@17.412281,78.243233,11z/data=!3m1!4b1!4m6!3m5!1s0x3bcb99daeaebd2c7:0xae93b78392bafbc2!8m2!3d17.385044!4d78.486671!16zL20vMDljNnc?entry=ttu"
+            >Hyderabad,India</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
