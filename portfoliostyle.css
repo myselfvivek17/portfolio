@@ -1,0 +1,256 @@
+html,
+body {
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+nav {
+    font-family: "Quicksand";
+    background-color: rgb(21, 21, 21);
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.locator {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.locator a {
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    position: relative;
+    display: inline-block;
+}
+
+.locator a::after {
+    content: "";
+    background-color: rgb(28, 222, 175);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    width: 100%;
+    height: 2px;
+    border-radius: 1px;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.locator a:hover {
+    color: rgb(28, 222, 175);
+}
+
+.locator a:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+#home {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.txt {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    padding-left: 20%;
+    flex-direction: column;
+    font-family: "Roboto Slab", serif;
+}
+
+.img {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.name {
+    color: rgb(28, 222, 175);
+}
+
+.aboutme {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    padding: 3%;
+    color: rgb(28, 222, 175);
+    font-family: "Roboto Slab";
+}
+
+.aboutme p {
+    width: 80%;
+    font-family: "Quicksand";
+}
+
+.skills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+    font-family: "Quicksand";
+}
+
+th {
+    padding-left: 15px;
+    padding-right: 15px;
+    color: rgb(28, 222, 175);
+    font-family: "Roboto Slab";
+    border-bottom: 2px solid rgba(255, 255, 255, 0.503);
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td:first-child,
+th:first-child {
+    border-right: 2px rgba(255, 255, 255, 0.503) solid;
+}
+
+.project {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grid {
+    max-width: 1200px;
+    margin: 20px auto;
+    /* padding: 20px; */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 3px 0px 15px 15px;
+    border-radius: 10px;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.644);
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+}
+
+.card h3 {
+    color: rgb(0, 255, 191);
+    font-family: "Roboto Slab";
+}
+
+.card span {
+    font-family: sans-serif;
+    font-size: medium;
+}
+
+.contact-me {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact {
+    width: 80%;
+    text-align: center;
+}
+
+p {
+    font-family: "Quicksand";
+}
+
+.contactlist {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.contact-card {
+    background-color: transparent;
+    width: 200px;
+}
+
+.contact-card h3 {
+    color: rgb(0, 255, 191);
+    font-family: sans-serif;
+}
+
+.contact-card a {
+    text-decoration: none;
+    color: white;
+}
+
+@media (min-width: 768px) and (max-width: 950px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hr {
+        margin-top: 35%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .txt {
+        padding-left: 0;
+        padding-top: 7%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .aboutme p {
+        width: 95%;
+    }
+
+    #home {
+        grid-template-columns: 1fr;
+    }
+
+    .ps {
+        margin-top: 80px;
+    }
+
+    .grid {
+        padding-left: 5%;
+        padding-right: 5%;
+        grid-template-columns: 1fr;
+        /* Switch to a single column layout */
+        gap: 10px;
+        /* Reduce the gap between items */
+    }
+
+    .card {
+        width: 100%;
+        /* Expand cards to full width */
+    }
+
+    .hr {
+        margin-top: 100%;
+    }
+}
